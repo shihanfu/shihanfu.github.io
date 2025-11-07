@@ -20,6 +20,18 @@
   .services-item {
     margin-bottom: 20px;
   }
+  /* Portfolio box responsive layout for tablets */
+  .portfolio-item .portfolio-box {
+    flex-direction: column;
+  }
+  .portfolio-item .portfolio-box .portfolio-image {
+    flex-basis: 100%;
+    width: 100%;
+  }
+  .portfolio-item .portfolio-box .portfolio-content {
+    flex-basis: 100%;
+    width: 100%;
+  }
 }
 
 /* only small tablets */
@@ -77,5 +89,17 @@
   }
   .footer-right-area {
     margin-top: 20px;
+  }
+  /* Portfolio box responsive layout */
+  .portfolio-item .portfolio-box {
+    flex-direction: column;
+  }
+  .portfolio-item .portfolio-box .portfolio-image {
+    flex-basis: 100%;
+    width: 100%;
+  }
+  .portfolio-item .portfolio-box .portfolio-content {
+    flex-basis: 100%;
+    width: 100%;
   }
 }
