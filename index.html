@@ -25,6 +25,22 @@
         content: "\e60a" !important;
         font-family: 'Simple-Line-Icons' !important;
       }
+      
+      /* Clickable card styles */
+      .clickable-card {
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      
+      .clickable-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+      
+      .clickable-card .btn {
+        position: relative;
+        z-index: 10;
+      }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/slicknav.css">
@@ -255,7 +271,7 @@
           <!-- Portfolio Papers -->
           <div id="portfolio" class="row wow fadeInDown" data-wow-delay="0.4s">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mix health-wellbeing portfolio-item">
-              <div class="portfolio-box d-flex">
+              <div class="portfolio-box d-flex clickable-card" data-link="https://arxiv.org/abs/2502.05115">
                 <div class="portfolio-image">
                   <img src="assets/papers/Arxiv_Dark.png" alt="Information needs of family caregivers in critical care settings" class="img-fluid">
                 </div>
@@ -263,14 +279,14 @@
                   <h3>"It Felt Like I Was Left in the Dark": Exploring Information Needs and Design Opportunities for Family Caregivers of Older Adult Patients in Critical Care Settings</h3>
                   <p><strong>Shihan Fu</strong>, Bingsheng Yao, Smit Desai, Yuqi Hu, Yuling Sun, Samantha Stonbraker, Yanjun Gao, Elizabeth M. Goldberg, Dakuo Wang</p><br>
                   <p>arXiv preprint (2025)</p><br>
-                  <a href="assets/papers/Arxiv_Dark.pdf" class="btn btn-common"><i class="icon-doc"></i></a>
-                  <a href="https://arxiv.org/abs/2502.05115" class="btn btn-common"><i class="icon-link"></i></a>
+                  <a href="assets/papers/Arxiv_Dark.pdf" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-doc"></i></a>
+                  <a href="https://arxiv.org/abs/2502.05115" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-link"></i></a>
                 </div>
               </div>
             </div>
 
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mix health-wellbeing portfolio-item">
-              <div class="portfolio-box d-flex">
+              <div class="portfolio-box d-flex clickable-card" data-link="https://dl.acm.org/doi/full/10.1145/3706598.3714272">
                 <div class="portfolio-image">
                   <img src="assets/papers/CHI25_cardio.png" alt="CardioAI system interface" class="img-fluid">
                 </div>
@@ -278,14 +294,14 @@
                   <h3>CardioAI: A Multimodal AI-based System to Support Symptom Monitoring and Risk Prediction of Cancer Treatment-Induced Cardiotoxicity</h3>
                   <p>Siyi Wu, Weidan Cao, <strong>Shihan Fu</strong>, Bingsheng Yao, Ziqi Yang, Changchang Yin, Varun Mishra, Daniel Addison, Ping Zhang, Dakuo Wang</p><br>
                   <p>Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI '25)</p><br>
-                  <a href="assets/papers/CHI_25_Cardio.pdf" class="btn btn-common"><i class="icon-doc"></i></a>
-                  <a href="https://dl.acm.org/doi/full/10.1145/3706598.3714272" class="btn btn-common"><i class="icon-link"></i></a>
+                  <a href="assets/papers/CHI_25_Cardio.pdf" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-doc"></i></a>
+                  <a href="https://dl.acm.org/doi/full/10.1145/3706598.3714272" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-link"></i></a>
                 </div>
               </div>
             </div>
 
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mix everyday-decision portfolio-item">
-              <div class="portfolio-box d-flex">
+              <div class="portfolio-box d-flex clickable-card" data-link="https://arxiv.org/abs/2408.16465">
                 <div class="portfolio-image">
                   <img src="assets/papers/Arxiv_Human_VA.png" alt="Human and LLM-Based Voice Assistant Interaction framework" class="img-fluid">
                 </div>
@@ -293,14 +309,14 @@
                   <h3>Human and LLM-Based Voice Assistant Interaction: An Analytical Framework for User Verbal and Nonverbal Behaviors</h3>
                   <p>Szeyi Chan, <strong>Shihan Fu</strong>, Jiachen Li, Bingsheng Yao, Smit Desai, Mirjana Prpa, Dakuo Wang</p><br>
                   <p>arXiv preprint (2024)</p><br>
-                  <a href="assets/papers/Arxiv_Human_VA.pdf" class="btn btn-common"><i class="icon-doc"></i></a>
-                  <a href="https://arxiv.org/abs/2408.16465" class="btn btn-common"><i class="icon-link"></i></a>
+                  <a href="assets/papers/Arxiv_Human_VA.pdf" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-doc"></i></a>
+                  <a href="https://arxiv.org/abs/2408.16465" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-link"></i></a>
                 </div>
               </div>
             </div>
 
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mix everyday-decision portfolio-item">
-              <div class="portfolio-box d-flex">
+              <div class="portfolio-box d-flex clickable-card" data-link="https://dl.acm.org/doi/full/10.1145/3758871.3758911">
                 <div class="portfolio-image">
                   <img src="assets/papers/CHCHI24_friend.png" alt="LLM assisting retirees in daily lives" class="img-fluid">
                 </div>
@@ -308,14 +324,14 @@
                   <h3>'It's like having a friend': Exploring the Opportunity of Large Language Models (LLMs) in Assisting Retirees In Their Daily Lives</h3>
                   <p>Jiaan Li, Yulu Hu, <strong>Shihan Fu</strong>, Zhiqing Wu, Pan Hui, Hailiang Wang, Mingming Fan</p><br>
                   <p>Proceedings of the Twelfth International Symposium of Chinese CHI (CHCHI '24)</p><br>
-                  <a href="assets/papers/CHCHI24_friend.pdf" class="btn btn-common"><i class="icon-doc"></i></a>
-                  <a href="https://dl.acm.org/doi/full/10.1145/3758871.3758911" class="btn btn-common"><i class="icon-link"></i></a>
+                  <a href="assets/papers/CHCHI24_friend.pdf" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-doc"></i></a>
+                  <a href="https://dl.acm.org/doi/full/10.1145/3758871.3758911" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-link"></i></a>
                 </div>
               </div>
             </div>
 
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mix learning-skills portfolio-item">
-              <div class="portfolio-box d-flex">
+              <div class="portfolio-box d-flex clickable-card" data-link="https://doi.org/10.1145/3613904.3642423">
                 <div class="portfolio-image">
                   <img src="assets/papers/CHI24_Adult_literacy.png" alt="Screenshots from livestreams" class="img-fluid">
                 </div>
@@ -323,15 +339,15 @@
                   <h3>Bridging the Literacy Gap for Adults: Streaming and Engaging in Adult Literacy Education through Livestreaming</h3>
                   <p><strong>Shihan Fu</strong>, Jianhao Chen,Emily Kuang, Mingming Fan</p><br>
                   <p>Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI '24)</p><br>
-                  <a href="assets/papers/CHI24_Adult_literacy.pdf" class="btn btn-common"><i class="icon-doc"></i></a>
-                  <a href="https://doi.org/10.1145/3613904.3642423" class="btn btn-common"><i class="icon-link"></i></a>
-                  <a href="https://www.youtube.com/watch?v=G8ppbXVsMnE" class="btn btn-common"><i class="fa fa-youtube"></i></a>
+                  <a href="assets/papers/CHI24_Adult_literacy.pdf" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-doc"></i></a>
+                  <a href="https://doi.org/10.1145/3613904.3642423" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-link"></i></a>
+                  <a href="https://www.youtube.com/watch?v=G8ppbXVsMnE" class="btn btn-common" onclick="event.stopPropagation();"><i class="fa fa-youtube"></i></a>
                 </div>
               </div>
             </div>
 
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mix learning-skills portfolio-item">
-              <div class="portfolio-box d-flex">
+              <div class="portfolio-box d-flex clickable-card" data-link="https://doi.org/10.1145/3613904.3642261">
                 <div class="portfolio-image">
                   <img src="assets/papers/CHI24_Xiqu.png" alt="User interface of the tool" class="img-fluid">
                 </div>
@@ -340,13 +356,13 @@
                   <p>Zeyu Xiong, <strong>Shihan Fu</strong>, Yanying Zhu, Chenqing Zhu, Xiaojuan Ma, Mingming Fan</p><br>
                   <p>Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI '24)</p>
                   <p><font color='#FF9500'><strong>[Honorable Mention Award]</strong></font></p><br>
-                  <a href="assets/papers/CHI24_Xiqu.pdf" class="btn btn-common"><i class="icon-doc"></i></a>
-                  <a href="https://doi.org/10.1145/3613904.3642261" class="btn btn-common"><i class="icon-link"></i></a>
+                  <a href="assets/papers/CHI24_Xiqu.pdf" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-doc"></i></a>
+                  <a href="https://doi.org/10.1145/3613904.3642261" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-link"></i></a>
                 </div>
               </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mix health-wellbeing portfolio-item">
-              <div class="portfolio-box d-flex">
+              <div class="portfolio-box d-flex clickable-card" data-link="https://doi.org/10.1145/3613904.3642912">
                 <div class="portfolio-image">
                   <img src="assets/papers/CHI24_VR_Rehab.png" alt="The process of how AIGC tools mediate debates, where UX designers leverage AIGC tools to gain insights into collaborators' workloads" class="img-fluid">
                 </div>
@@ -354,13 +370,13 @@
                   <h3>To Reach the Unreachable: Exploring the Potential of VR Hand Redirection for Upper Limb Rehabilitation</h3>
                   <p>Peixuan Xiong, Yukai Zhang, Nandi Zhang,<strong> Shihan Fu</strong>, Xin Li, Yadan Zheng, Jinni Zhou, Xiquan Hu, Mingming Fan</p><br>
                   <p>Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI '24)</p><br>
-                  <a href="assets/papers/CHI24_VR_Rehab.pdf" class="btn btn-common"><i class="icon-doc"></i></a>
-                  <a href="https://doi.org/10.1145/3613904.3642912" class="btn btn-common"><i class="icon-link"></i></a>
+                  <a href="assets/papers/CHI24_VR_Rehab.pdf" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-doc"></i></a>
+                  <a href="https://doi.org/10.1145/3613904.3642912" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-link"></i></a>
                 </div>
               </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mix learning-skills portfolio-item">
-              <div class="portfolio-box d-flex">
+              <div class="portfolio-box d-flex clickable-card" data-link="https://doi.org/10.1145/3613905.3648670">
                 <div class="portfolio-image">
                   <img src="assets/papers/CHI24_AromaBlenz.png" alt="User interface of proactive conversational assistant" class="img-fluid">
                 </div>
@@ -368,13 +384,13 @@
                   <h3>AromaBlendz: An Olfactory System for Crafting Personalized Scents</h3>
                   <p><strong>Shihan Fu</strong>, Jianhao Chen, Yi Cai, and Mingming Fan</p><br>
                   <p>Extended Abstracts of the 2024 CHI Conference on Human Factors in Computing Systems (CHI EA '24)</p><br>
-                  <a href="assets/papers/CHI24_AromaBlenz.pdf" class="btn btn-common"><i class="icon-doc"></i></a>
-                  <a href="https://doi.org/10.1145/3613905.3648670" class="btn btn-common"><i class="icon-link"></i></a>
+                  <a href="assets/papers/CHI24_AromaBlenz.pdf" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-doc"></i></a>
+                  <a href="https://doi.org/10.1145/3613905.3648670" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-link"></i></a>
                 </div>
               </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mix learning-skills portfolio-item">
-              <div class="portfolio-box d-flex">
+              <div class="portfolio-box d-flex clickable-card" data-link="https://doi.org/10.1145/3613904.3642097">
                 <div class="portfolio-image">
                   <img src="assets/papers/CHCHI23_OpenAR.png" alt="Number of surveys and interviews" class="img-fluid">
                 </div>
@@ -383,14 +399,14 @@
                   <p>Zeyu Xiong*, <strong>Shihan Fu*</strong>,Mingming Fan <i>(* indicates equal contribution)</i></p><br>
                   <p>Proceedings of the Eleventh International Symposium of Chinese CHI (CHCHI '23)</p><br>
                   <p><font color='#FF9500'><strong>[Honorable Mention Award]</strong></font></p><br>
-                  <a href="assets/papers/CHCHI23_OpenAR.pdf" class="btn btn-common"><i class="icon-doc"></i></a>
-                  <a href="https://doi.org/10.1145/3613904.3642097" class="btn btn-common"><i class="icon-link"></i></a>
-                  <a href="https://www.youtube.com/watch?v=1hIql0xBMEs" class="btn btn-common"><i class="fa fa-youtube"></i></a>
+                  <a href="assets/papers/CHCHI23_OpenAR.pdf" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-doc"></i></a>
+                  <a href="https://doi.org/10.1145/3613904.3642097" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-link"></i></a>
+                  <a href="https://www.youtube.com/watch?v=1hIql0xBMEs" class="btn btn-common" onclick="event.stopPropagation();"><i class="fa fa-youtube"></i></a>
                 </div>
               </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mix health-wellbeing portfolio-item">
-              <div class="portfolio-box d-flex">
+              <div class="portfolio-box d-flex clickable-card" data-link="https://doi.org/10.1145/3615522.3615538">
                 <div class="portfolio-image">
                   <img src="assets/papers/VINCI23_Loop_meditation.png" alt="Electrotactile guidance features" class="img-fluid">
                 </div>
@@ -398,8 +414,8 @@
                   <h3>LOOP Meditation: Enhancing Novice's VR Meditation Experience with Physical Movement</h3>
                   <p>Shihan Fu, Liangliang Qiang, Wei Zeng</p><br>
                   <p>Proceedings of the 16th International Symposium on Visual Information Communication and Interaction (VINCI '23)</p><br>
-                  <a href="assets/papers/VINCI23_Loop_meditation.pdf" class="btn btn-common"><i class="icon-doc"></i></a>
-                  <a href="https://doi.org/10.1145/3615522.3615538" class="btn btn-common"><i class="icon-link"></i></a>
+                  <a href="assets/papers/VINCI23_Loop_meditation.pdf" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-doc"></i></a>
+                  <a href="https://doi.org/10.1145/3615522.3615538" class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-link"></i></a>
                 </div>
               </div>
             </div>
@@ -744,6 +760,27 @@
     <!-- <script src="assets/js/form-validator.min.js"></script> -->
     <!-- <script src="assets/js/contact-form-script.min.js"></script> -->
     <!-- <script src="assets/js/map.js"></script> -->
+    
+    <!-- Clickable card functionality -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Get all clickable cards
+        var cards = document.querySelectorAll('.clickable-card');
+        
+        // Add click event listener to each card
+        cards.forEach(function(card) {
+          card.addEventListener('click', function(e) {
+            // Get the link from data-link attribute
+            var link = this.getAttribute('data-link');
+            
+            // Open the link in a new tab
+            if (link) {
+              window.open(link, '_blank');
+            }
+          });
+        });
+      });
+    </script>
 
   </body>
 </html>
