@@ -1,0 +1,39 @@
+---
+interface Props {
+  paper: {
+    title: string;
+    authors: string;
+    note?: string;
+    venue: string;
+    award?: string;
+    category: string;
+    image: string;
+    imageAlt: string;
+    pdf?: string;
+    url: string;
+    video?: string;
+  };
+}
+
+const { paper } = Astro.props;
+// Bold my name (including an equal-contribution asterisk) in the author list
+const authorsHtml = paper.authors.replace(/Shihan Fu\*?/, (m) => `<strong>${m}</strong>`);
+---
+
+<div class={`col-sm-12 col-md-12 col-lg-12 col-xl-12 mix ${paper.category} portfolio-item`}>
+  <div class="portfolio-box d-flex clickable-card" data-link={paper.url}>
+    <div class="portfolio-image">
+      <img src={`/assets/papers/${paper.image}`} alt={paper.imageAlt} class="img-fluid" />
+    </div>
+    <div class="portfolio-content">
+      <h3>{paper.title}</h3>
+      <p><Fragment set:html={authorsHtml} />{paper.note && <> <i>{paper.note}</i></>}</p><br />
+      <p>{paper.venue}</p>
+      {paper.award && <p><font color="#FF9500"><strong>[{paper.award}]</strong></font></p>}
+      <br />
+      {paper.pdf && <a href={`/assets/papers/${paper.pdf}`} class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-doc"></i></a>}
+      <a href={paper.url} class="btn btn-common" onclick="event.stopPropagation();"><i class="icon-link"></i></a>
+      {paper.video && <a href={paper.video} class="btn btn-common" onclick="event.stopPropagation();"><i class="fa fa-youtube"></i></a>}
+    </div>
+  </div>
+</div>
