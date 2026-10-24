@@ -1,0 +1,162 @@
+---
+import Base from '../layouts/Base.astro';
+import PaperCard from '../components/PaperCard.astro';
+import papers from '../data/papers.json';
+import news from '../data/news.json';
+
+const filters = [
+  { label: 'All', filter: 'all' },
+  { label: 'Healthcare Wellbeing', filter: '.health-wellbeing' },
+  { label: 'Learning Skills', filter: '.learning-skills' },
+  { label: 'Human-AI Interaction', filter: '.everyday-decision' },
+];
+---
+
+<Base title="Shihan Fu">
+  <!-- Header Area wrapper Starts -->
+  <header id="header-wrap">
+    <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            <span class="icon-menu"></span>
+            <span class="icon-menu"></span>
+            <span class="icon-menu"></span>
+          </button>
+          <a href="/" class="navbar-brand">Shihan Fu (傅 诗寒）</a>
+        </div>
+        <div class="collapse navbar-collapse" id="main-navbar">
+          <ul class="onepage-nev navbar-nav mr-auto w-100 justify-content-end clearfix">
+            <li class="nav-item active"><a class="nav-link" href="#hero-area">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#portfolios">Research</a></li>
+            <li class="nav-item"><a class="nav-link" href="/assets/papers/CV_Shihan_Fu.pdf">CV</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Start -->
+      <ul class="onepage-nev mobile-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Research</a></li>
+        <li><a href="/assets/papers/CV_Shihan_Fu.pdf">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <!-- Mobile Menu End -->
+    </nav>
+  </header>
+
+  <!-- About Section Start -->
+  <section id="about" class="section-padding">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-4 col-md-5 col-sm-6 col-xs-6">
+          <div class="img-thumb wow fadeInLeft" data-wow-delay="0.3s">
+            <img class="img-fluid rounded-circle" src="/assets/img/about/shihan.JPG" alt="Photo of Shihan with Link from the legend of Zelda" />
+            <ul class="social-icon wow fadeInUp text-center" data-wow-delay="0.8s">
+              <li><a class="neu" href="mailto:fu.shiha@northeastern.edu"><i class="fa fa-envelope"></i></a></li>
+              <li><a class="google" href="https://scholar.google.com/citations?user=KznoaAEAAAAJ"><i class="icon-social-google"></i></a></li>
+              <li><a class="github" href="https://github.com/shihanfu"><i class="icon-social-github"></i></a></li>
+              <li><a class="linkedin" href="https://www.linkedin.com/in/shihan-fu-5b0b88259/"><i class="fa fa-linkedin"></i></a></li>
+              <li><a class="google" href="https://orcid.org/0009-0005-3019-6600"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12">
+          <div class="profile-wrapper wow fadeInRight" data-wow-delay="0.3s">
+            <h3>About Me</h3>
+            <p>
+              Hi, I'm Shihan Fu, a current CS Ph.D. student at <a href="https://www.northeastern.edu">Northeastern University</a>.
+              Before that, I got my Master degree at the Hong Kong University of Science and Technology majoring in <a href="https://cma.hkust-gz.edu.cn">computational media and arts (CMA)</a>.
+            </p><br />
+            <p class="research-envision">
+              I design AI systems that provide situated support for people navigating complex tasks across health, learning, and everyday decision-making contexts. Through understanding diverse user needs and designing multimodal interactions, my research explores how AI can adapt to different contexts while preserving user autonomy and agency.
+              <br /><br />
+              If you're interested in my work or would like to connect, please <a href="#contact">reach out</a>.
+              You can also <a href="/assets/papers/CV_Shihan_Fu.pdf" target="_blank">download my CV</a>.
+            </p><br />
+
+            <h3>Recent News</h3>
+            <ol>
+              {news.map((item) => (
+                <li><font color="#6366F1">{item.date}:</font> <Fragment set:html={item.html} /></li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolios" class="section-padding">
+    <div class="container">
+      <h2 class="section-title wow flipInX" data-wow-delay="0.4s">Research</h2>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="controls text-center">
+            {filters.map((f, i) => (
+              <><a class={`filter btn btn-common${i === 0 ? ' active' : ''}`} data-filter={f.filter}>{f.label}</a>{' '}</>
+            ))}
+          </div>
+        </div>
+
+        <div id="portfolio" class="row wow fadeInDown" data-wow-delay="0.4s">
+          {papers.map((paper) => <PaperCard paper={paper} />)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section Start -->
+  <section id="contact" class="section-padding">
+    <div class="contact-form">
+      <div class="container">
+        <div class="row contact-form-area wow fadeInUp" data-wow-delay="0.4s">
+          <div class="col-md-6 col-lg-6 col-sm-12">
+            <div class="footer-right-area wow fadeIn">
+              <h2>Contact Information</h2>
+              <div class="footer-right-contact">
+                <div class="single-contact">
+                  <div class="contact-icon"><i class="fa fa-envelope"></i></div>
+                  <p><a href="mailto:fu.shiha@northeastern.edu">fu.shiha@northeastern.edu</a></p>
+                </div>
+                <div class="single-contact">
+                  <div class="contact-icon"><i class="fa fa-linkedin"></i></div>
+                  <p><a href="https://www.linkedin.com/in/shihan-fu-5b0b88259/">Connect on LinkedIn</a></p>
+                </div>
+                <div class="single-contact">
+                  <div class="contact-icon"><i class="fa fa-twitter"></i></div>
+                  <p><a href="https://x.com/shihan1420876?s=21&t=c1Yl6nRh4ksf91IdbS7erQ">Connect on Twitter</a></p>
+                </div>
+                <div class="single-contact">
+                  <div class="contact-icon"><i class="icon-social-google"></i></div>
+                  <p><a href="https://scholar.google.com/citations?user=KznoaAEAAAAJ">Find me on Google Scholar</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section Start -->
+  <footer class="footer-area section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="footer-text text-center wow fadeInDown" data-wow-delay="0.3s">
+            <p>Copyright ©2024 All rights reserved | Template modified from UIdeck</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Go to Top Link -->
+  <a href="#" class="back-to-top"><i class="icon-arrow-up"></i></a>
+</Base>
