@@ -4,6 +4,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
+// Changes on every build so browsers fetch fresh copies of the static stylesheets
+const version = Date.now().toString(36);
 ---
 
 <!DOCTYPE html>
@@ -30,9 +32,9 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/css/main.css" />
-    <link rel="stylesheet" href="/assets/css/responsive.css" />
+    <link rel="stylesheet" href={`/assets/css/bootstrap.min.css?v=${version}`} />
+    <link rel="stylesheet" href={`/assets/css/main.css?v=${version}`} />
+    <link rel="stylesheet" href={`/assets/css/responsive.css?v=${version}`} />
     <style is:global>
       /* Cross-page transitions: the header stays put while the content fades and rises in */
       @view-transition {
