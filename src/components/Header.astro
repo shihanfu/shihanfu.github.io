@@ -1,0 +1,141 @@
+---
+const cvUrl = '/assets/papers/CV_Shihan_Fu.pdf';
+
+const navLinks = [
+  { label: 'about', href: '/#about' },
+  { label: 'research', href: '/research' },
+  { label: 'contact', href: '/#contact' },
+];
+
+const path = Astro.url.pathname.replace(/\/$/, '');
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">Shihan Fu (傅 诗寒）</a>
+    <nav class="site-nav">
+      {navLinks.map((l) => (
+        <a href={l.href} aria-current={path === l.href || path.startsWith(`${l.href}/`) ? 'page' : undefined}>{l.label}</a>
+      ))}
+    </nav>
+    <a class="pill pill-solid header-cv" href={cvUrl} target="_blank">CV ↗</a>
+  </div>
+</header>
+
+<script>
+  // One rule for every header link: same page scrolls smoothly, another page uses the
+  // cross-page transition, and the underline always marks where the reader currently is.
+  const normalize = (p: string) => p.replace(/\/$/, '') || '/';
+  const here = normalize(location.pathname);
+  const behavior: ScrollBehavior = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+  const header = document.querySelector<HTMLElement>('.site-header')!;
+
+  header.querySelectorAll<HTMLAnchorElement>('a[href^="/"]:not([target])').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const url = new URL(link.href);
+      if (normalize(url.pathname) !== here || event.metaKey || event.ctrlKey || event.shiftKey) return;
+      event.preventDefault();
+      const target = url.hash ? document.querySelector(url.hash) : null;
+      if (target) target.scrollIntoView({ behavior });
+      else window.scrollTo({ top: 0, behavior });
+      history.replaceState(null, '', url.hash || url.pathname);
+    });
+  });
+
+  // Scroll spy for links to sections on this page
+  const sectionLinks = Array.from(header.querySelectorAll<HTMLAnchorElement>('.site-nav a'))
+    .map((link) => ({ link, url: new URL(link.href) }))
+    .filter(({ url }) => normalize(url.pathname) === here && url.hash)
+    .map(({ link, url }) => ({ link, id: url.hash.slice(1) }));
+  const sections = Array.from(document.querySelectorAll<HTMLElement>('main section[id], body > section[id]'));
+
+  if (sectionLinks.length) {
+    const update = () => {
+      const line = header.offsetHeight + window.innerHeight * 0.35;
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      const current = atBottom
+        ? sections[sections.length - 1]
+        : sections.filter((s) => s.getBoundingClientRect().top <= line).pop();
+      sectionLinks.forEach(({ link, id }) => {
+        if (current?.id === id) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #f6f4f2;
+    view-transition-name: site-header;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  .brand {
+    font-size: 22px;
+    color: #333;
+    white-space: nowrap;
+  }
+
+  .site-nav {
+    display: flex;
+    gap: 32px;
+  }
+
+  .site-nav a {
+    font-size: 17px;
+    color: #555;
+  }
+
+  .brand:hover,
+  .site-nav a:hover,
+  .site-nav a[aria-current] {
+    color: #333;
+  }
+
+  .site-nav a[aria-current] {
+    text-decoration: underline;
+    text-decoration-color: #55748A;
+    text-underline-offset: 6px;
+  }
+
+  .header-cv {
+    margin-left: auto;
+  }
+
+  @media (max-width: 767px) {
+    .header-inner {
+      flex-wrap: wrap;
+      row-gap: 10px;
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+
+    .brand {
+      font-size: 19px;
+    }
+
+    .site-nav {
+      order: 3;
+      width: 100%;
+      gap: 24px;
+      overflow-x: auto;
+    }
+
+    .site-nav a {
+      font-size: 16px;
+    }
+  }
+</style>

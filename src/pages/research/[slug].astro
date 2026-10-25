@@ -1,0 +1,454 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { type Paper, papers, authorsHtml, categoryTags, paperLinks, relatedPapers, youtubeId } from '../../lib/papers';
+import { getBibtex } from '../../lib/bibtex';
+
+export function getStaticPaths() {
+  return papers.map((paper) => ({ params: { slug: paper.slug }, props: { paper } }));
+}
+
+const { paper } = Astro.props as { paper: Paper };
+const entry = await getEntry('papers', paper.slug);
+if (!entry) throw new Error(`Missing src/content/papers/${paper.slug}.md`);
+
+const { Content } = await render(entry);
+const hasWriteUp = Boolean(entry.body?.trim());
+const { pdfUrl, linkLabel } = paperLinks(paper);
+const bibtex = getBibtex(paper.bibkey);
+const related = relatedPapers(paper);
+const videoId = youtubeId(paper.video);
+---
+
+<Base title={`${paper.title} | Shihan Fu`}>
+  <Header />
+
+  <main class="container paper-page">
+    <a class="back" href="/research">← All research</a>
+
+    <p class="eyebrow">{paper.venue}<span>{categoryTags[paper.category]}</span></p>
+    <h1 class="title">{paper.title}</h1>
+    <p class="authors"><Fragment set:html={authorsHtml(paper)} />{paper.note && <> <i>{paper.note}</i></>}</p>
+    {paper.award && <p class="award">{paper.award}</p>}
+
+    <div class="actions">
+      {pdfUrl && <a class="pill pill-solid" href={pdfUrl} target="_blank">PDF ↗</a>}
+      {paper.url && <a class="pill" href={paper.url} target="_blank">{linkLabel} ↗</a>}
+      {videoId ? (
+        <a class="pill" href="#video">Watch video</a>
+      ) : (
+        paper.video && <a class="pill" href={paper.video} target="_blank">Video ↗</a>
+      )}
+      {bibtex && <a class="pill" href="#cite">Cite</a>}
+    </div>
+
+    <figure class="figure">
+      <img src={`/assets/papers/${paper.image}`} alt={paper.imageAlt} />
+    </figure>
+
+    {videoId && (
+      <section id="video" class="video">
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0`}
+          title={`Video: ${paper.title}`}
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </section>
+    )}
+
+    {entry.data.tldr && (
+      <p class="tldr"><span>TL;DR</span>{entry.data.tldr}</p>
+    )}
+
+    {hasWriteUp ? (
+      <article class="prose">
+        <Content />
+      </article>
+    ) : (
+      <section class="prose">
+        <h2>Abstract</h2>
+        <p>{entry.data.abstract}</p>
+      </section>
+    )}
+
+    {hasWriteUp && (
+      <details class="abstract">
+        <summary>Abstract</summary>
+        <p>{entry.data.abstract}</p>
+      </details>
+    )}
+
+    {bibtex && (
+      <section id="cite" class="cite">
+        <div class="cite-head">
+          <h2>Cite</h2>
+          <button type="button" class="pill copy-bibtex">Copy BibTeX</button>
+        </div>
+        <pre><code>{bibtex}</code></pre>
+      </section>
+    )}
+
+    <section class="read-next">
+      <h2>Read next</h2>
+      <div class="read-next-grid">
+        {related.map((p) => (
+          <a class="next-card" href={`/research/${p.slug}`}>
+            <span class="next-media"><img src={`/assets/papers/${p.image}`} alt={p.imageAlt} loading="lazy" /></span>
+            <span class="next-venue">{p.venue}</span>
+            <span class="next-title">{p.title}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Base>
+
+<script>
+  document.querySelector<HTMLButtonElement>('.copy-bibtex')?.addEventListener('click', async (event) => {
+    const button = event.currentTarget as HTMLButtonElement;
+    await navigator.clipboard.writeText(document.querySelector('.cite code')!.textContent!);
+    button.textContent = 'Copied';
+    setTimeout(() => (button.textContent = 'Copy BibTeX'), 1600);
+  });
+</script>
+
+<style>
+  .paper-page {
+    max-width: 880px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+
+  .back {
+    display: inline-block;
+    margin-bottom: 32px;
+    font-size: 15px;
+    color: #555;
+  }
+
+  .back:hover {
+    color: #333;
+  }
+
+  .eyebrow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 24px;
+    font-size: 15px;
+    color: #55748A;
+    margin-bottom: 14px;
+  }
+
+  .eyebrow span {
+    color: #555;
+  }
+
+  .title {
+    font-size: clamp(28px, 3.2vw, 40px);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: #333;
+    margin-bottom: 18px;
+  }
+
+  .authors {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+  }
+
+  .award {
+    margin-top: 8px;
+    font-size: 15px;
+    color: #55748A;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 28px 0 40px;
+  }
+
+  .figure {
+    margin: 0 0 40px;
+    padding: 24px;
+    background: #fff;
+    border-radius: 20px;
+  }
+
+  .figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .video {
+    margin: 0 0 40px;
+    aspect-ratio: 16 / 9;
+    background: #333;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .video iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .tldr {
+    margin-bottom: 40px;
+    padding: 22px 26px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    background: #fbfaf8;
+    border: 1px solid #d6d1ca;
+    border-radius: 16px;
+  }
+
+  .tldr span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: #55748A;
+  }
+
+  /* Write-up body rendered from Markdown */
+  .prose :global(h2) {
+    font-size: 24px;
+    margin: 44px 0 14px;
+    color: #333;
+  }
+
+  .prose :global(h3) {
+    font-size: 19px;
+    margin: 28px 0 10px;
+    color: #333;
+  }
+
+  .prose :global(p),
+  .prose :global(li) {
+    font-size: 17px;
+    line-height: 1.75;
+    color: #555;
+  }
+
+  .prose :global(p) {
+    margin: 0 0 16px;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin: 0 0 16px;
+    padding-left: 22px;
+    list-style: disc;
+  }
+
+  .prose :global(ol) {
+    list-style: decimal;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 6px;
+    list-style: inherit;
+  }
+
+  .prose :global(strong) {
+    color: #333;
+    font-weight: 600;
+  }
+
+  .prose :global(a) {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #55748A;
+    text-underline-offset: 4px;
+  }
+
+  .prose :global(blockquote) {
+    margin: 0 0 16px;
+    padding-left: 18px;
+    border-left: 2px solid #55748A;
+  }
+
+  .prose :global(figure) {
+    margin: 8px 0 28px;
+  }
+
+  .prose :global(figure img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 16px;
+  }
+
+  .prose :global(figcaption) {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #555;
+  }
+
+  /* Stat callouts: <div class="stats"><div><strong>…</strong><span>…</span></div></div> */
+  .prose :global(.stats) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 8px 0 24px;
+  }
+
+  .prose :global(.stats > div) {
+    padding: 22px 24px;
+    background: #fbfaf8;
+    border: 1px solid #d6d1ca;
+    border-radius: 16px;
+  }
+
+  .prose :global(.stats strong) {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: #333;
+  }
+
+  .prose :global(.stats span) {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #555;
+  }
+
+  .abstract {
+    margin-top: 36px;
+    padding: 18px 0;
+    border-top: 1px solid #e2ddd6;
+    border-bottom: 1px solid #e2ddd6;
+  }
+
+  .abstract summary {
+    font-size: 17px;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .abstract p {
+    margin-top: 14px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+  }
+
+  .cite {
+    margin-top: 56px;
+  }
+
+  .cite-head,
+  .read-next h2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .cite h2,
+  .read-next h2 {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .copy-bibtex {
+    font: inherit;
+    font-size: 14px;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .cite pre {
+    margin: 0;
+    padding: 20px 22px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #333;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    background: #fbfaf8;
+    border: 1px solid #d6d1ca;
+    border-radius: 16px;
+  }
+
+  .read-next {
+    margin-top: 64px;
+  }
+
+  .read-next-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .next-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .next-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 10;
+    padding: 14px;
+    background: #fff;
+    border-radius: 16px;
+  }
+
+  .next-media img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .next-venue {
+    font-size: 13px;
+    color: #55748A;
+  }
+
+  .next-title {
+    font-size: 16px;
+    line-height: 1.45;
+    color: #333;
+  }
+
+  .next-card:hover .next-title {
+    color: #55748A;
+  }
+
+  @media (max-width: 767px) {
+    .paper-page {
+      padding-top: 24px;
+    }
+
+    .figure {
+      padding: 14px;
+    }
+
+    .read-next-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

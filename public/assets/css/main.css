@@ -1,18 +1,18 @@
-@import url("https://fonts.googleapis.com/css?family=Shadows+Into+Light|Raleway:300,400,500,600,700");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&display=swap");
 html {
   overflow-x: hidden;
 }
 
 body {
-  background: #FAFBFC;
+  background: #f6f4f2;
   font-size: 14px;
   font-weight: 400;
-  font-family: "Raleway", sans-serif;
+  font-family: "DM Sans", sans-serif;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-font-smoothing: subpixel-antialiased;
-  color: #374151;
+  color: #555;
   line-height: 25px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -22,8 +22,8 @@ body {
 h1, h2, h3, h4 {
   font-size: 38px;
   font-weight: 700;
-  font-family: "Raleway", sans-serif;
-  color: #1F2937;
+  font-family: "DM Sans", sans-serif;
+  color: #333;
 }
 
 .script-font {
@@ -35,12 +35,12 @@ a {
   -moz-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
-  color: #6366F1;
+  color: #333;
 }
 
 a:hover {
   text-decoration: none;
-  color: #4F46E5;
+  color: #555;
 }
 
 a a:focus {
@@ -49,7 +49,7 @@ a a:focus {
 
 p {
   font-weight: 400;
-  font-family: "Raleway", sans-serif;
+  font-family: "DM Sans", sans-serif;
   margin: 0px;
   font-size: 14px;
 }
@@ -102,7 +102,7 @@ ul li, ol li {
 }
 
 .section-title {
-  color: #1F2937;
+  color: #333;
   font-size: 38px;
   text-align: center;
   letter-spacing: 1px;
@@ -136,15 +136,15 @@ ul li, ol li {
 }
 
 .btn-common {
-  background-color: #6366F1;
+  background-color: #333;
   position: relative;
   z-index: 1;
 }
 
 .btn-common:hover {
   color: #fff;
-  background-color: #4F46E5;
-  box-shadow: 0 6px 22px rgba(99, 102, 241, 0.3);
+  background-color: #555;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.12);
   transition: all .2s ease-in-out;
   -moz-transition: all .2s ease-in-out;
   -webkit-transition: all .2s ease-in-out;
@@ -187,7 +187,7 @@ button:focus {
 }
 
 .icon-close, .icon-check {
-  color: #6366F1;
+  color: #333;
 }
 
 .social-icon li {
@@ -220,19 +220,19 @@ button:focus {
 }
 
 .social-icon li .twitter:hover {
-  background: #6366F1;
+  background: #333;
 }
 
 .social-icon li .instagram:hover {
-  background: #6366F1;
+  background: #333;
 }
 
 .social-icon li .linkedin:hover {
-  background: #6366F1;
+  background: #333;
 }
 
 .social-icon li .google:hover {
-  background: #6366F1;
+  background: #333;
 }
 
 .social-icon li .github:hover {
@@ -259,7 +259,7 @@ a.back-to-top i {
   height: 40px;
   line-height: 40px;
   color: #fff;
-  background: #6366F1;
+  background: #333;
   border-radius: 2px;
   text-align: center;
   transition: all 0.2s ease-in-out;
@@ -388,7 +388,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 
 .counter-section .counter .icon i {
   font-size: 48px;
-  color: #6366F1;
+  color: #333;
 }
 
 .counter-section .counter p {
@@ -470,7 +470,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   display: block;
   position: absolute;
   margin-top: 18px;
-  border-color: #6366F1 !important;
+  border-color: #333 !important;
 }
 
 .timeline li:first-child i {
@@ -480,7 +480,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   line-height: 50px;
   border-radius: 30px;
   margin: -12px -55px;
-  background: #6366F1;
+  background: #333;
   color: #fff;
   width: 50px;
   height: 50px;
@@ -523,11 +523,11 @@ a.back-to-top:hover, a.back-to-top:focus {
 
 .top-nav-collapse .navbar-nav .nav-link:hover {
   cursor: pointer;
-  color: #6366F1 !important;
+  color: #333 !important;
 }
 
 .top-nav-collapse .navbar-nav li.active a.nav-link {
-  color: #6366F1 !important;
+  color: #333 !important;
 }
 
 .indigo {
@@ -540,7 +540,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 
 .navbar-expand-lg .navbar-nav .nav-link i {
   font-size: 28px;
-  color: #6366F1;
+  color: #333;
   vertical-align: middle;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -548,7 +548,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 }
 
 .navbar-expand-lg .navbar-nav .nav-link i:hover {
-  color: #6366F1;
+  color: #333;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
@@ -569,7 +569,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 .navbar-expand-lg .navbar-nav li a:hover,
 .navbar-expand-lg .navbar-nav li .active > a,
 .navbar-expand-lg .navbar-nav li a:focus {
-  color: #6366F1;
+  color: #333;
   outline: none;
 }
 
@@ -578,7 +578,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 }
 
 .navbar li.active a.nav-link {
-  color: #6366F1;
+  color: #333;
 }
 
 .dropdown-toggle::after {
@@ -662,7 +662,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 .dropdown .dropdown-item:focus,
 .dropdown .dropdown-item:hover,
 .dropdown .dropdown-item.active {
-  color: #6366F1;
+  color: #333;
 }
 
 .dropdown-item.active, .dropdown-item:active {
@@ -675,11 +675,11 @@ a.back-to-top:hover, a.back-to-top:focus {
 }
 
 .slicknav_btn {
-  border-color: #6366F1;
+  border-color: #333;
 }
 
 .slicknav_menu .slicknav_icon-bar {
-  background: #6366F1;
+  background: #333;
 }
 
 /* only small tablets */
@@ -726,7 +726,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   .slicknav_nav a:hover,
   .slicknav_nav a:focus,
   .slicknav_nav .active {
-    color: #6366F1;
+    color: #333;
     outline: none;
     background: #f8f9fa;
   }
@@ -805,43 +805,8 @@ a.back-to-top:hover, a.back-to-top:focus {
 /* ==========================================================================
   Portfolio Section
    ========================================================================== */
-#portfolios {
-  background: #f2f2f2;
-}
-
-#portfolios .mix {
-  padding: 10px;
-}
-
 #portfolios .portfolio-item .shot-item {
   margin: 0px;
-}
-
-#portfolio .mix {
-  display: none;
-}
-
-.controls {
-  text-align: center;
-  padding: 0px 0px 20px;
-}
-
-.controls .active {
-  color: #6366F1 !important;
-  border-color: #6366F1;
-  /* font-size: 16px; */
-  background: transparent;
-}
-
-.controls .btn {
-  text-transform: uppercase;
-  margin: 2px;
-  /* font-size: 16px; */
-  color: #fff;
-}
-
-.controls:hover {
-  cursor: pointer;
 }
 
 .portfolio-img {
@@ -889,7 +854,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   height: 42px;
   width: 42px;
   line-height: 42px;
-  color: #6366F1;
+  color: #333;
   left: 50%;
   margin-left: -24px;
   margin-top: -24px;
@@ -978,7 +943,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
   font-size: 18px; /* Adjust the font size as needed */
   margin-top: 0; /* Optional: Adjusts the top margin */
   margin-bottom: 18px; /* Optional: Adjusts the bottom margin for spacing */
-  color: #1F2937; /* Darker, more sophisticated color */
+  color: #333; /* Darker, more sophisticated color */
 }
 
 .portfolio-item .portfolio-box .portfolio-content .btn {
@@ -1013,7 +978,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
   display: block;
   margin: 0 auto;
   height: 48px;
-  color: #6366F1;
+  color: #333;
 }
 
 .services-item .services-content h3 {
@@ -1028,7 +993,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 }
 
 .services-item .services-content h3 a:hover {
-  color: #6366F1;
+  color: #333;
 }
 
 .services-item .services-content p {
@@ -1093,7 +1058,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 }
 
 .footer-right-contact .contact-icon {
-  background: #6366F1;
+  background: #333;
   color: #fff;
   border-radius: 50%;
   font-size: 20px;
@@ -1140,7 +1105,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 
 /* Footer Area Start */
 .footer-area {
-  background: #1C1C20;
+  background: #333;
 }
 
 .footer-area .footer-text p {
@@ -1150,7 +1115,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 }
 
 .footer-area .footer-text p a {
-  color: #6366F1;
+  color: #333;
 }
 
 .footer-area .footer-text .nav-inline .nav-link {
@@ -1159,7 +1124,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 }
 
 .footer-area .footer-text .nav-inline .nav-link:hover {
-  color: #6366F1;
+  color: #333;
 }
 
 .footer-2 {
@@ -1193,7 +1158,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 }
 
 .footer-2 ul li a:hover {
-  color: #6366F1;
+  color: #333;
 }
 
 #copyright {
@@ -1211,5 +1176,5 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 }
 
 #copyright p a:hover {
-  color: #6366F1;
+  color: #333;
 }

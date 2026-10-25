@@ -1,66 +1,98 @@
 [
   {
+    "slug": "llm-agent-meets-agentic-ai",
+    "bibkey": "sun2025agentmeetsagentic",
     "title": "LLM Agent Meets Agentic AI: Can LLM Agents Simulate Customers to Evaluate Agentic-AI-based Shopping Assistants?",
     "authors": "Lu Sun, Shihan Fu, Bingsheng Yao, Yuxuan Lu, Wenbo Li, Hansu Gu, Jiri Gesi, Jing Huang, Chen Luo, Dakuo Wang",
     "venue": "arXiv preprint (2025)",
     "category": "everyday-decision",
     "image": "Arxiv_LLM_Agent.png",
     "imageAlt": "LLM Agent Meets Agentic AI",
-    "pdf": "Arxiv_LLM_Agent.pdf",
     "url": "https://arxiv.org/abs/2509.21501"
   },
   {
+    "slug": "left-in-the-dark",
+    "bibkey": "fu2025leftinthedark",
     "title": "\"It Felt Like I Was Left in the Dark\": Exploring Information Needs and Design Opportunities for Family Caregivers of Older Adult Patients in Critical Care Settings",
     "authors": "Shihan Fu, Bingsheng Yao, Smit Desai, Yuqi Hu, Yuling Sun, Samantha Stonbraker, Yanjun Gao, Elizabeth M. Goldberg, Dakuo Wang",
     "venue": "arXiv preprint (2025)",
     "category": "health-wellbeing",
     "image": "Arxiv_Dark.png",
     "imageAlt": "Information needs of family caregivers in critical care settings",
-    "pdf": "Arxiv_Dark.pdf",
-    "url": "https://arxiv.org/abs/2502.05115"
+    "url": "https://arxiv.org/abs/2502.05115",
+    "featured": true
   },
   {
+    "slug": "cardioai",
+    "bibkey": "wu2025cardioai",
     "title": "CardioAI: A Multimodal AI-based System to Support Symptom Monitoring and Risk Prediction of Cancer Treatment-Induced Cardiotoxicity",
     "authors": "Siyi Wu, Weidan Cao, Shihan Fu, Bingsheng Yao, Ziqi Yang, Changchang Yin, Varun Mishra, Daniel Addison, Ping Zhang, Dakuo Wang",
     "venue": "Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI '25)",
     "category": "health-wellbeing",
     "image": "CHI25_cardio.png",
     "imageAlt": "CardioAI system interface",
-    "pdf": "CHI_25_Cardio.pdf",
-    "url": "https://dl.acm.org/doi/full/10.1145/3706598.3714272"
+    "url": "https://dl.acm.org/doi/full/10.1145/3706598.3714272",
+    "featured": true
   },
   {
+    "slug": "sepsiscalc",
+    "bibkey": "yin2025sepsiscalc",
+    "title": "SepsisCalc: Integrating Clinical Calculators into Early Sepsis Prediction via Dynamic Temporal Graph Construction",
+    "authors": "Changchang Yin, Shihan Fu, Bingsheng Yao, Thai-Hoang Pham, Weidan Cao, Dakuo Wang, Jeffrey M. Caterino, Ping Zhang",
+    "venue": "ACM SIGKDD Conference on Knowledge Discovery and Data Mining, Applied Data Science Track (KDD '25)",
+    "category": "health-wellbeing",
+    "image": "KDD25_SepsisCalc.png",
+    "imageAlt": "Clinician and AI workflows for sepsis identification",
+    "url": "https://arxiv.org/abs/2501.00190"
+  },
+  {
+    "slug": "voice-assistant-interaction",
+    "bibkey": "chan2024voiceassistant",
     "title": "Human and LLM-Based Voice Assistant Interaction: An Analytical Framework for User Verbal and Nonverbal Behaviors",
     "authors": "Szeyi Chan, Shihan Fu, Jiachen Li, Bingsheng Yao, Smit Desai, Mirjana Prpa, Dakuo Wang",
     "venue": "arXiv preprint (2024)",
     "category": "everyday-decision",
     "image": "Arxiv_Human_VA.png",
     "imageAlt": "Human and LLM-Based Voice Assistant Interaction framework",
-    "pdf": "Arxiv_Human_VA.pdf",
     "url": "https://arxiv.org/abs/2408.16465"
   },
   {
+    "slug": "cardiotoxicity-decision-making",
+    "bibkey": "wu2024cardiotoxicity",
+    "title": "Clinical Challenges and AI Opportunities in Decision-Making for Cancer Treatment-Induced Cardiotoxicity",
+    "authors": "Siyi Wu, Weidan Cao, Shihan Fu, Bingsheng Yao, Ziqi Yang, Changchang Yin, Varun Mishra, Daniel Addison, Ping Zhang, Dakuo Wang",
+    "venue": "arXiv preprint (2024)",
+    "category": "health-wellbeing",
+    "image": "Arxiv_Cardiotoxicity.png",
+    "imageAlt": "Current workflow of cardiotoxicity diagnosis",
+    "url": "https://arxiv.org/abs/2408.03586"
+  },
+  {
+    "slug": "llm-retirees",
     "title": "'It's like having a friend': Exploring the Opportunity of Large Language Models (LLMs) in Assisting Retirees In Their Daily Lives",
     "authors": "Jiaan Li, Yulu Hu, Shihan Fu, Zhiqing Wu, Pan Hui, Hailiang Wang, Mingming Fan",
     "venue": "Proceedings of the Twelfth International Symposium of Chinese CHI (CHCHI '24)",
     "category": "everyday-decision",
     "image": "CHCHI24_friend.png",
     "imageAlt": "LLM assisting retirees in daily lives",
-    "pdf": "CHCHI24_friend.pdf",
-    "url": "https://dl.acm.org/doi/full/10.1145/3758871.3758911"
+    "url": "https://dl.acm.org/doi/10.1145/3758871.3758911"
   },
   {
+    "slug": "adult-literacy-livestreaming",
+    "bibkey": "fu2024literacy",
     "title": "Bridging the Literacy Gap for Adults: Streaming and Engaging in Adult Literacy Education through Livestreaming",
     "authors": "Shihan Fu, Jianhao Chen, Emily Kuang, Mingming Fan",
     "venue": "Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI '24)",
     "category": "learning-skills",
     "image": "CHI24_Adult_literacy.png",
     "imageAlt": "Screenshots from livestreams",
-    "pdf": "CHI24_Adult_literacy.pdf",
     "url": "https://doi.org/10.1145/3613904.3642423",
-    "video": "https://www.youtube.com/watch?v=G8ppbXVsMnE"
+    "video": "https://www.youtube.com/watch?v=G8ppbXVsMnE",
+    "featured": true
   },
   {
+    "slug": "xiqu-makeup-residue",
+    "bibkey": "xiong2024makeupresidue",
     "title": "\"It is hard to remove from my eye\": Design Makeup Residue Visualization System for Chinese Traditional Opera (Xiqu) Performers",
     "authors": "Zeyu Xiong, Shihan Fu, Yanying Zhu, Chenqing Zhu, Xiaojuan Ma, Mingming Fan",
     "venue": "Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI '24)",
@@ -68,30 +100,34 @@
     "category": "learning-skills",
     "image": "CHI24_Xiqu.png",
     "imageAlt": "User interface of the tool",
-    "pdf": "CHI24_Xiqu.pdf",
-    "url": "https://doi.org/10.1145/3613904.3642261"
+    "url": "https://doi.org/10.1145/3613904.3642261",
+    "featured": true
   },
   {
+    "slug": "vr-hand-redirection",
+    "bibkey": "xiong2024vrhand",
     "title": "To Reach the Unreachable: Exploring the Potential of VR Hand Redirection for Upper Limb Rehabilitation",
     "authors": "Peixuan Xiong, Yukai Zhang, Nandi Zhang, Shihan Fu, Xin Li, Yadan Zheng, Jinni Zhou, Xiquan Hu, Mingming Fan",
     "venue": "Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI '24)",
     "category": "health-wellbeing",
     "image": "CHI24_VR_Rehab.png",
     "imageAlt": "VR hand redirection for upper limb rehabilitation",
-    "pdf": "CHI24_VR_Rehab.pdf",
     "url": "https://doi.org/10.1145/3613904.3642912"
   },
   {
+    "slug": "aromablendz",
+    "bibkey": "fu2024aromablendz",
     "title": "AromaBlendz: An Olfactory System for Crafting Personalized Scents",
     "authors": "Shihan Fu, Jianhao Chen, Yi Cai, and Mingming Fan",
     "venue": "Extended Abstracts of the 2024 CHI Conference on Human Factors in Computing Systems (CHI EA '24)",
     "category": "learning-skills",
     "image": "CHI24_AromaBlenz.png",
     "imageAlt": "AromaBlendz olfactory system",
-    "pdf": "CHI24_AromaBlenz.pdf",
     "url": "https://doi.org/10.1145/3613905.3648670"
   },
   {
+    "slug": "operartistry",
+    "bibkey": "xiong2023operartistry",
     "title": "OperARtistry: An AR-based Interactive Application to Assist the Learning of Chinese Traditional Opera (Xiqu) Makeup",
     "authors": "Zeyu Xiong*, Shihan Fu*, Mingming Fan",
     "note": "(* indicates equal contribution)",
@@ -100,18 +136,18 @@
     "category": "learning-skills",
     "image": "CHCHI23_OpenAR.png",
     "imageAlt": "Number of surveys and interviews",
-    "pdf": "CHCHI23_OpenAR.pdf",
-    "url": "https://doi.org/10.1145/3613904.3642097",
+    "url": "https://doi.org/10.1145/3629606.3629622",
     "video": "https://www.youtube.com/watch?v=1hIql0xBMEs"
   },
   {
+    "slug": "loop-meditation",
+    "bibkey": "fu2023loop",
     "title": "LOOP Meditation: Enhancing Novice's VR Meditation Experience with Physical Movement",
     "authors": "Shihan Fu, Liangliang Qiang, Wei Zeng",
     "venue": "Proceedings of the 16th International Symposium on Visual Information Communication and Interaction (VINCI '23)",
     "category": "health-wellbeing",
     "image": "VINCI23_Loop_meditation.png",
     "imageAlt": "Electrotactile guidance features",
-    "pdf": "VINCI23_Loop_meditation.pdf",
     "url": "https://doi.org/10.1145/3615522.3615538"
   }
 ]

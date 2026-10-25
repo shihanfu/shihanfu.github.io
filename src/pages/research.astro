@@ -1,0 +1,153 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PaperCard from '../components/PaperCard.astro';
+import { papers } from '../lib/papers';
+
+const filters = [
+  { label: 'All', filter: 'all' },
+  { label: 'Healthcare Wellbeing', filter: 'health-wellbeing' },
+  { label: 'Learning Skills', filter: 'learning-skills' },
+  { label: 'Human-AI Interaction', filter: 'everyday-decision' },
+];
+---
+
+<Base title="Research | Shihan Fu">
+  <Header />
+
+  <main class="container research-page">
+    <h1 class="page-title">Research</h1>
+    <p class="page-intro">
+      I design AI systems that provide situated support for people navigating complex tasks across health, learning,
+      and everyday decision-making contexts. Through understanding diverse user needs and designing multimodal
+      interactions, my research explores how AI can adapt to different contexts while preserving user autonomy and agency.
+    </p>
+
+    <div class="filters">
+      {filters.map((f, i) => (
+        <button type="button" class="filter-pill" data-filter={f.filter} aria-pressed={i === 0 ? 'true' : 'false'}>{f.label}</button>
+      ))}
+    </div>
+
+    <div id="paper-list">
+      {papers.map((paper) => <PaperCard paper={paper} />)}
+    </div>
+  </main>
+
+  <Footer />
+</Base>
+
+<script>
+  // Research filter: fade out papers that leave, then fade in the matching ones with a slight stagger
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-pill');
+  const items = Array.from(document.querySelectorAll<HTMLElement>('#paper-list .paper-item'));
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const FADE_OUT_MS = 180;
+  let pending: number | undefined;
+
+  // Visibility is driven by timers; the animations are purely visual
+  const fade = (el: HTMLElement, keyframes: Keyframe[], options: KeyframeAnimationOptions) => {
+    if (!reduceMotion) el.animate(keyframes, options);
+  };
+
+  function applyFilter(filter: string) {
+    window.clearTimeout(pending);
+    items.forEach((el) => el.getAnimations().forEach((a) => a.cancel()));
+
+    const matches = (el: HTMLElement) => filter === 'all' || el.dataset.category === filter;
+    const leaving = items.filter((el) => !el.hidden && !matches(el));
+
+    leaving.forEach((el) =>
+      fade(el, [{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(8px)' }], {
+        duration: FADE_OUT_MS,
+        easing: 'ease-in',
+        fill: 'forwards',
+      }),
+    );
+
+    pending = window.setTimeout(() => {
+      leaving.forEach((el) => {
+        el.hidden = true;
+        el.getAnimations().forEach((a) => a.cancel());
+      });
+      const entering = items.filter((el) => el.hidden && matches(el));
+      entering.forEach((el, i) => {
+        el.hidden = false;
+        fade(el, [{ opacity: 0, transform: 'translateY(12px)' }, { opacity: 1, transform: 'none' }], {
+          duration: 360,
+          delay: i * 50,
+          easing: 'cubic-bezier(0.2, 0.7, 0.2, 1)',
+          fill: 'backwards',
+        });
+      });
+    }, reduceMotion || leaving.length === 0 ? 0 : FADE_OUT_MS);
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      if (button.getAttribute('aria-pressed') === 'true') return;
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+      applyFilter(button.dataset.filter!);
+    });
+  });
+</script>
+
+<style>
+  .research-page {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .page-title {
+    font-size: clamp(32px, 3.6vw, 48px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .page-intro {
+    max-width: 720px;
+    font-size: 18px;
+    line-height: 1.65;
+    color: #555;
+    margin-bottom: 36px;
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .filter-pill {
+    padding: 6px 18px;
+    font: inherit;
+    font-size: 14px;
+    color: #555;
+    background: transparent;
+    border: 1px solid #c8c8c8;
+    border-radius: 500px;
+    cursor: pointer;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+  }
+
+  .filter-pill:hover {
+    color: #333;
+    border-color: #333;
+  }
+
+  .filter-pill[aria-pressed='true'] {
+    color: #fff;
+    background: #333;
+    border-color: #333;
+  }
+
+  @media (max-width: 767px) {
+    .research-page {
+      padding-top: 30px;
+    }
+  }
+</style>
