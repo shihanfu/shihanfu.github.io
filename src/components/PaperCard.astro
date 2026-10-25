@@ -25,12 +25,12 @@ const detailUrl = `/research/${paper.slug}`;
       {paper.award && <p class="paper-award">{paper.award}</p>}
       <div class="paper-actions">
         <a class="pill pill-solid" href={detailUrl}>Details</a>
-        {pdfUrl && <a class="pill" href={pdfUrl} target="_blank">PDF ↗</a>}
-        {paper.url && <a class="pill" href={paper.url} target="_blank">{linkLabel} ↗</a>}
+        {pdfUrl && <a class="pill" href={pdfUrl} target="_blank">PDF ↗︎</a>}
+        {paper.url && <a class="pill" href={paper.url} target="_blank">{linkLabel} ↗︎</a>}
         {youtubeId(paper.video) ? (
           <a class="pill" href={`${detailUrl}#video`}>Video</a>
         ) : (
-          paper.video && <a class="pill" href={paper.video} target="_blank">Video ↗</a>
+          paper.video && <a class="pill" href={paper.video} target="_blank">Video ↗︎</a>
         )}
       </div>
     </div>

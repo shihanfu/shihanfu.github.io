@@ -34,12 +34,12 @@ const videoId = youtubeId(paper.video);
     {paper.award && <p class="award">{paper.award}</p>}
 
     <div class="actions">
-      {pdfUrl && <a class="pill pill-solid" href={pdfUrl} target="_blank">PDF ↗</a>}
-      {paper.url && <a class="pill" href={paper.url} target="_blank">{linkLabel} ↗</a>}
+      {pdfUrl && <a class="pill pill-solid" href={pdfUrl} target="_blank">PDF ↗︎</a>}
+      {paper.url && <a class="pill" href={paper.url} target="_blank">{linkLabel} ↗︎</a>}
       {videoId ? (
         <a class="pill" href="#video">Watch video</a>
       ) : (
-        paper.video && <a class="pill" href={paper.video} target="_blank">Video ↗</a>
+        paper.video && <a class="pill" href={paper.video} target="_blank">Video ↗︎</a>
       )}
       {bibtex && <a class="pill" href="#cite">Cite</a>}
     </div>

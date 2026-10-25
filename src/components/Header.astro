@@ -18,7 +18,7 @@ const path = Astro.url.pathname.replace(/\/$/, '');
         <a href={l.href} aria-current={path === l.href || path.startsWith(`${l.href}/`) ? 'page' : undefined}>{l.label}</a>
       ))}
     </nav>
-    <a class="pill pill-solid header-cv" href={cvUrl} target="_blank">CV ↗</a>
+    <a class="pill pill-solid header-cv" href={cvUrl} target="_blank">CV ↗︎</a>
   </div>
 </header>
 
