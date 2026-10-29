@@ -1,5 +1,16 @@
 [
   {
+    "slug": "stresstalk",
+    "title": "StressTalk: Designing and Evaluating a Conversational Framework Integrating Passive Sensing for Stress Self-Reporting",
+    "authors": "Shihan Fu, Ha Le, Akshat Choube, Srinidhi Rajaraman, Jiachen Li, Jixin Li, Vedant Das Swain, Varun Mishra",
+    "venue": "Work in progress",
+    "category": "health-wellbeing",
+    "image": "StressTalk.png",
+    "imageAlt": "A day with StressTalk: a morning check-in, passive sensing, multi-agent sensemaking, and an evening check-in",
+    "video": "https://youtu.be/tnEm7Eof304",
+    "featured": true
+  },
+  {
     "slug": "llm-agent-meets-agentic-ai",
     "bibkey": "sun2025agentmeetsagentic",
     "title": "LLM Agent Meets Agentic AI: Can LLM Agents Simulate Customers to Evaluate Agentic-AI-based Shopping Assistants?",

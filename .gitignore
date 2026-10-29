@@ -5,5 +5,3 @@ dist/
 
 # Unpublished work: shown only in `npm run dev`, never committed or deployed
 src/data/drafts.json
-src/content/papers/stresstalk.md
-public/assets/papers/StressTalk.png
