@@ -1,9 +1,9 @@
 [
   {
     "slug": "stresstalk",
-    "title": "StressTalk: Designing and Evaluating a Conversational Framework Integrating Passive Sensing for Stress Self-Reporting",
+    "title": "StressTalk: Designing and Evaluating a Sensing-Guided Conversational System for Understanding Daily Stress",
     "authors": "Shihan Fu, Ha Le, Akshat Choube, Srinidhi Rajaraman, Jiachen Li, Jixin Li, Vedant Das Swain, Varun Mishra",
-    "venue": "Work in progress",
+    "venue": "Under review",
     "category": "health-wellbeing",
     "image": "StressTalk.png",
     "imageAlt": "A day with StressTalk: a morning check-in, passive sensing, multi-agent sensemaking, and an evening check-in",
